@@ -1,0 +1,35 @@
+﻿@model CBTSWE2_TP03.Models.Produto
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-info text-white"><h5 class="mb-0">Ficha Técnica</h5></div>
+            <div class="card-body p-4">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.Nome)</dt>
+                    <dd class="col-sm-9 fw-bold fs-5">@Html.DisplayFor(model => model.Nome)</dd>
+
+                    <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.Descricao)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Descricao)</dd>
+
+                    <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.Preco)</dt>
+                    <dd class="col-sm-9 text-success fw-bold">@Html.DisplayFor(model => model.Preco)</dd>
+
+                    <dt class="col-sm-3 text-muted">Estoque Atual</dt>
+                    <dd class="col-sm-9">
+                        <span class="badge @(Model.QuantidadeEstoque > 0 ? "bg-primary" : "bg-danger")">
+                            @Html.DisplayFor(model => model.QuantidadeEstoque) unidades
+                        </span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-between p-3">
+                <a asp-action="Index" class="btn btn-outline-secondary">Voltar para a Lista</a>
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary px-4">Editar Detalhes</a>
+            </div>
+        </div>
+    </div>
+</div>

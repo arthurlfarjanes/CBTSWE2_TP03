@@ -1,0 +1,25 @@
+﻿@model CBTSWE2_TP03.Models.Produto
+@{
+    ViewData["Title"] = "Excluir Produto";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+        <div class="alert alert-danger shadow-sm border-0">
+            <h4 class="alert-heading fw-bold">Confirmar Exclusão</h4>
+            <p>Você tem certeza que deseja excluir permanentemente o produto <strong>@Model.Nome</strong>?</p>
+            <hr>
+            <dl class="row mb-0 mt-3">
+                <dt class="col-sm-3">Preço</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Preco)</dd>
+                <dt class="col-sm-3">Estoque</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.QuantidadeEstoque) unidades</dd>
+            </dl>
+            <form asp-action="Delete" class="mt-4 d-flex justify-content-between">
+                <input type="hidden" asp-for="Id" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger px-4">Sim, Excluir Produto</button>
+            </form>
+        </div>
+    </div>
+</div>
